@@ -54,7 +54,7 @@ const b = JSON.stringify({
 
 And y’get:
 
-![example outpoop](https://github.com/HourlyNerd/justin-diff/raw/master/resource/example.png)
+![example outpoop](https://github.com/bathos/justin-diff/raw/master/resource/example.png)
 
 So it handles that fine, but note that if one of the `propertyD` members had
 added a new property that would sort before 'name', the whole array would have
