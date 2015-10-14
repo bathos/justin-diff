@@ -1,0 +1,19 @@
+{
+  "name": "justin-diff",
+  "version": "0.0.1",
+  "description": "diff json but weirdly",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "babel ./src/index.js -o ./lib/index.js",
+    "test": "node ./test/test.js"
+  },
+  "author": "Darien Maillet Valentine",
+  "license": "whatevs",
+  "devDependencies": {
+    "babel": "^5.8.23"
+  },
+  "dependencies": {
+    "cli-color": "^1.1.0",
+    "diff": "^2.1.3"
+  }
+}
