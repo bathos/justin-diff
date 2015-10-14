@@ -18,6 +18,22 @@ import clc from 'cli-color';
 // apply to these circumstances). That cuts down on complexity a good deal I
 // think.
 
+const weightedProperties = [
+  'name', '$ref', 'properties', 'in', 'required', 'type',
+  'description', 'allowMultiple', 'enum'
+];
+
+const weigh = (a, b) => {
+  const [ aw, bw ] = [ a, b ].map(n => weightedProperties.indexOf(n) + 1);
+
+  return (
+    aw > bw ? -1 :
+    aw < bw ?  1 :
+    a  > b  ?  1 :
+    a  < b  ? -1 : 0
+  );
+}
+
 const serialize = obj => JSON.stringify(obj, null, 4);
 
 const abnormalizeJSON = json => {
@@ -40,7 +56,7 @@ const abnormalizeJSON = json => {
 
   else
     return Object.keys(json)
-      .sort()
+      .sort(weigh)
       .reduce((acc, key) => {
         acc[key] = abnormalizeJSON(json[key]);
         return acc;
